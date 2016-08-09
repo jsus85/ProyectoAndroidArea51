@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MenuMain">
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_personal"
+        android:title="@string/action_personal"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="@string/action_logout"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/my_shopping"
+        android:icon="@drawable/ic_action_name"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/my_shopping"
+         />
+
+    <item
+        android:id="@+id/my_state_shopping"
+        android:icon="@drawable/ic_action_estado_compras"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/send_state_shopping"
+        />
+
+    <item
+        android:id="@+id/my_list_card"
+        android:icon="@drawable/ic_action_list_card"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/list_card"
+        />
+
+    <item
+        android:id="@+id/add_card"
+        android:icon="@drawable/ic_action_add_card"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/add_card"
+        />
+
+
+
+</menu>

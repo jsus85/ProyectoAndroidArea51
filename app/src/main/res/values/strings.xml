@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Window Welcome apphu -->
+    <string name="app_name">Apphu</string>
+    <string name="msg_bienvenida">BIENVENIDO APPHU</string>
+    <string name="msg_controlgastos">Control de Gastos</string>
+    <string name="msg_titulo_privacidad">Aviso de Privacidad</string>
+    <string name="msg_titulo_acepto">Acepto la licencia por el uso del App.</string>
+    <string name="msg_button_acepto">Siguente</string>
+
+    <!-- Window Register apphu -->
+    <string name="msg_title_register_head">Registro Nuevo Usuario</string>
+    <string name="msg_hint_registerUser_names">Nombres</string>
+    <string name="msg_hint_registerUser_password">Contraseña</string>
+    <string name="msg_hint_registerUser_email">Email</string>
+    <string name="msg_button_registerUser">Registrarse</string>
+    <string name="msg_button_redirectLoginUser">Ya tengo una membresia</string>
+
+    <!-- Window Login apphu -->
+    <string name="msg_title_login_head">Iniciar Sesión</string>
+    <string name="msg_button_loginSend">Enviar</string>
+    <string name="title_activity_main_panel">Panel Principal</string>
+
+    <!-- Main Menu-->
+    <string name="action_settings">Cambio de Clave</string>
+    <string name="action_personal">Datos Personales</string>
+    <string name="action_logout">Cerrar sesión</string>
+
+    <string name="my_shopping">Mis Compras</string>
+    <string name="list_card">Listado de Tarjetas</string>
+    <string name="add_card">Agregar Tarjeta</string>
+    <string name="send_state_shopping">Envio estado de Compras</string>
+
+
+    <!-- Configure Account -->
+    <string name="msg_title_configure_account">Configurar Cuenta</string>
+    <string-array name="coin">
+        <item>Soles</item>
+        <item>Dolares</item>
+    </string-array>
+    <string name="msg_title_affordability">Capacidad de Endeudamiento Mensual</string>
+
+</resources>
