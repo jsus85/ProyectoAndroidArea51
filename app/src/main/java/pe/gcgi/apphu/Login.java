@@ -2,6 +2,7 @@ package pe.gcgi.apphu;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,8 +90,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 JSONArray jsonArray = jsonObject.getJSONArray("info");
 
                                 Toast.makeText(Login.this, "Bienvenido "+jsonArray.getJSONObject(0).getString("cli_nom"), Toast.LENGTH_SHORT).show();
+
+                               //Creating a shared preference
+                                SharedPreferences sharedPreferences = Login.this.getSharedPreferences("myloginapp", Context.MODE_PRIVATE);
+                                //Creating editor to store values to shared preferences
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putBoolean("loggedin", true);
+                                editor.putString("email", email.getText().toString());
+                                //Saving values to editor
+                                editor.commit();
+
+
                                 final Intent intent = new Intent(Login.this,ConfigureAccount.class);
                                 startActivity(intent);
+
                             }else{
                                 Toast.makeText(Login.this, "Error en Email y Clave incorrecto", Toast.LENGTH_SHORT).show();
                             }
@@ -106,10 +119,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onErrorResponse(VolleyError error) {
                 Log.d(getClass().getName(),error.getMessage());
             }
-        }
-
-        );
+        });
         requestQueue.add(jsonObjectRequest);
-
     }
 }

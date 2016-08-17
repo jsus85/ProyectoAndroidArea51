@@ -1,7 +1,9 @@
 package pe.gcgi.apphu;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CheckBox chk_welcome;
+    //boolean variable to check user is logged in or not
+    //initially it is false
+    private boolean loggedIn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //In onresume fetching value from sharedpreference
+        SharedPreferences sharedPreferences = getSharedPreferences("myloginapp", Context.MODE_PRIVATE);
+        //Fetching the boolean value form sharedpreferences
+        loggedIn = sharedPreferences.getBoolean("loggedin", false);
+        //If we will get true
+        if(loggedIn){
+            //We will start the Profile Activity
+            Intent intent = new Intent(MainActivity.this, MenuMain.class);
+            startActivity(intent);
+        }
+    }
 }
