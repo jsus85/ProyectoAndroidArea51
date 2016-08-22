@@ -94,6 +94,7 @@ public class Register_User extends AppCompatActivity implements View.OnClickList
                         //Log.d("rta_servidor", response);
                         if(response.equalsIgnoreCase("succes") ){
                             final Intent intent = new Intent(Register_User.this, Login.class);
+                            Toast.makeText(context, "Gracias, ha sido registrado exitosamente, por favor Inicie Sesión.", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }else{
                             //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
@@ -117,15 +118,18 @@ public class Register_User extends AppCompatActivity implements View.OnClickList
 
                     }
                 },  new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("error_servidor", error.toString());
-            }
-        }) {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("error_servidor", error.toString());
+                    }
+        })
+        {
             @Override
             protected Map<String, String> getParams()  {
+
                 Map<String, String> parametros = new HashMap<>();
 
+                parametros.put("tipo", "1001");
                 parametros.put("username", names.getText().toString());
                 parametros.put("password", password.getText().toString());
                 parametros.put("usermail", email.getText().toString());

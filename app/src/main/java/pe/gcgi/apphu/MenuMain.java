@@ -43,10 +43,8 @@ public class MenuMain extends AppCompatActivity {
                         SharedPreferences preferences = getSharedPreferences("myloginapp", Context.MODE_PRIVATE);
                         //Getting editor
                         SharedPreferences.Editor editor = preferences.edit();
-
                         //Puting the value false for loggedin
                         editor.putBoolean("loggedin", false);
-
                         //Putting blank value to email
                         editor.putString("email", "");
 
@@ -81,7 +79,6 @@ public class MenuMain extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_logout:
                logout();
-
             default:
                 return super.onOptionsItemSelected(item);
         }

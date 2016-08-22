@@ -86,6 +86,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
                             if(response.getString("status").equalsIgnoreCase("1") ){
+
                                 JSONObject jsonObject = new JSONObject(response.toString());
                                 JSONArray jsonArray = jsonObject.getJSONArray("info");
 
@@ -97,6 +98,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putBoolean("loggedin", true);
                                 editor.putString("email", email.getText().toString());
+                                editor.putString("cli_cod",jsonArray.getJSONObject(0).getString("cli_cod"));
                                 //Saving values to editor
                                 editor.commit();
 
