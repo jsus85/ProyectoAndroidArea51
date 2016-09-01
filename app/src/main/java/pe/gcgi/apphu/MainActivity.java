@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //boolean variable to check user is logged in or not
     //initially it is false
     private boolean loggedIn = false;
+    private String welcome = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         chk_welcome = (CheckBox) findViewById(R.id.chk_welcome);
 
         if(!chk_welcome.isChecked()){
-            Toast.makeText(MainActivity.this, "Por favor acepte la Licencia.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Por favor Acepte la Licencia.", Toast.LENGTH_SHORT).show();
         }else{
             startActivity(intent);
         }
@@ -47,11 +48,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences = getSharedPreferences("myloginapp", Context.MODE_PRIVATE);
         //Fetching the boolean value form sharedpreferences
         loggedIn = sharedPreferences.getBoolean("loggedin", false);
+        welcome = sharedPreferences.getString("welcome", "0");
         //If we will get true
         if(loggedIn){
             //We will start the Profile Activity
             Intent intent = new Intent(MainActivity.this, MenuMain.class);
             startActivity(intent);
+
+        }else{
+                if(welcome.equals("1")){
+                    Intent intent = new Intent(MainActivity.this,Login.class);
+                    startActivity(intent);
+                }
         }
+
+
+
     }
 }

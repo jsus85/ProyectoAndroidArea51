@@ -97,6 +97,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 //Creating editor to store values to shared preferences
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putBoolean("loggedin", true);
+                                editor.putString("welcome","1");
                                 editor.putString("email", email.getText().toString());
                                 editor.putString("cli_cod",jsonArray.getJSONObject(0).getString("cli_cod"));
                                 //Saving values to editor

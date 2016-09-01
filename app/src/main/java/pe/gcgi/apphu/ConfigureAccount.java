@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,13 +40,12 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
     private StringRequest stringRequest;
 
     private String valueSpinner;
-    private String url = "http://gcgi.pe/apphudemo/CCMonedas.php";
+
     private String url_register_capacity = "http://gcgi.pe/apphudemo/CCAccount.php";
     //Creating a request queue
     private RequestQueue requestQueue;
     private Context context;
     EditText edittex_capacity_monthly;
-
     private String cod_cli ;
 
     @Override
@@ -62,26 +62,26 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
         monedas = new ArrayList<String>();
         //Inicializar Spinner
         spinner = (Spinner) findViewById(R.id.coin);
+
         spinner.setOnItemSelectedListener(this);
         findViewById(R.id.button_next_configure_account).setOnClickListener(this);
 
         getDataCoins();
     }
 
-    private void getDataCoins() {
-
+    public void getDataCoins() {
+        String url = "http://gcgi.pe/apphudemo/CCControl.php?tipo=2001";
         stringRequest = new StringRequest(url,new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                JSONObject j = null;
-
+                JSONObject j ;
                 try {
                     //Parsing the fetched Json String to JSON Object
                     j = new JSONObject(response);
                     //Storing the Array of JSON String to our JSON Array
                     result = j.getJSONArray("result");
-                    //Calling method getStudents to get the students from the JSON Array
+                    //Calling method getCoins to get the coins from the JSON Array
                     getCoins(result);
 
                 } catch (JSONException e) {
@@ -92,7 +92,7 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d(getClass().getName(),error.getMessage());
             }
         });
 
@@ -107,12 +107,11 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);
                 //Adding the name of the student to array list
-                monedas.add(json.getString("moneda"));
+                monedas.add(json.getString("CEN_DES"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-
         //Setting adapter to show the items in the spinner
         spinner.setAdapter(new ArrayAdapter<String>(ConfigureAccount.this, android.R.layout.simple_spinner_dropdown_item, monedas));
     }
@@ -124,9 +123,8 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
         try {
             //Getting object of given index
             JSONObject json = result.getJSONObject(position);
-
             //Fetching name from that object
-            name = json.getString("valor");
+            name = json.getString("CEN_COD");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -136,8 +134,6 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
 
     @Override
     public void onClick(View view) {
-
-
         switch (view.getId()){
             case R.id.button_next_configure_account:
                  accountSettingsIndebtedness();
@@ -188,11 +184,10 @@ public class ConfigureAccount extends AppCompatActivity implements Spinner.OnIte
             };
         //Adding request to the queue
         requestQueue.add(stringRequest);
-
     }
 
 
-    //this method will execute when we pic an item from the spinner
+    //This method will execute when we pic an item from the spinner
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
         valueSpinner = getName(position);
