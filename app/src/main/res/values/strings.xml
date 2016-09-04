@@ -32,7 +32,7 @@
     <string name="send_state_shopping">Envio estado de Compras</string>
 
 
-    <!-- Configure Account -->
+    <!-- Window Configure Account -->
     <string name="msg_title_configure_account">Configurar Cuenta</string>
     <string-array name="coin">
         <item>Soles</item>
@@ -40,4 +40,25 @@
     </string-array>
     <string name="msg_title_affordability">Capacidad de Endeudamiento Mensual</string>
 
+    <!-- Window Add Card  -->
+    <string name="msg_title_add_card">Agregar Tarjeta de Crédito</string>
+    <string name="msg_title_bank">Banco</string>
+    <string name="msg_title_product">Producto</string>
+    <string name="msg_title_line">Línea</string>
+    <string name="msg_hint_line">Ingrese la Línea de Crédito</string>
+    <string name="msg_title_tea">Compra TEA %</string>
+    <string name="msg_dis_effective">Disp. Efec. TEA%</string>
+    <string name="msg_hint_dis_effective">Ingrese la Disposición de Efectivo</string>
+
+    <!-- Window Purchase Register-->
+    <string name="msg_title_purchase_register">Comprar Ya</string>
+    <string name="msg_title_select_card">Seleccione Card</string>
+    <string-array name="products_array">
+        <item>Tarjeta de Credito Oro Lan Pass</item>
+        <item>Tarjeta de Credito Visa BCP Oro</item>
+        <item>Tarjeta de Credito Visa BCP Platinum</item>
+    </string-array>
+    <string name="msg_title_purchase_line">Linea Actual</string>
+    <string name="msg_button_cuota">Fijar Cuota</string>
+    <string name="msg_button_monto">Fijar Monto</string>
 </resources>

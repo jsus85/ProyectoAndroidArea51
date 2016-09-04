@@ -64,6 +64,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/capacity_monthly"
         android:inputType="numberDecimal"
         android:textSize="@dimen/textos"
         android:layout_marginTop="10dp"

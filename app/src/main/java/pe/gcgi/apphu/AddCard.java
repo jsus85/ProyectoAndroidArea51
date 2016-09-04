@@ -1,7 +1,9 @@
 package pe.gcgi.apphu;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -171,8 +173,29 @@ public class AddCard extends AppCompatActivity implements   Spinner.OnItemSelect
 
         switch (view.getId()) {
             case R.id.button_next_card:
-                final Intent intent = new Intent(AddCard.this,MenuMain.class);
-                startActivity(intent);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setMessage("Tarjeta Guardada con Exito.\n Desea agregar otra Tarjeta?");
+
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(getIntent());
+
+                    }
+                });
+
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        final Intent intent = new Intent(AddCard.this,MenuMain.class);
+                        startActivity(intent);
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
                 break;
         }
 

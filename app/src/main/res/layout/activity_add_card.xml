@@ -8,39 +8,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pe.gcgi.apphu.AddCard"
+    android:isScrollContainer="true"
     android:orientation="vertical">
 
-    <LinearLayout
 
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-
-            android:textSize="18sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/msg_bienvenida"
-            />
-
-
-        <TextView
-            android:layout_marginLeft="@dimen/activity_gastos_margin_left"
-
-            android:textSize="12sp"
-            android:layout_gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/msg_controlgastos"
-            />
-
-    </LinearLayout>
 
     <LinearLayout
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -52,7 +26,7 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:textSize="@dimen/textos"
+            android:textSize="20sp"
             android:text="@string/msg_title_add_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -60,15 +34,64 @@
     </LinearLayout>
 
 <TextView
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="10dp"
     android:text="@string/msg_title_bank"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
     <Spinner
         android:layout_marginTop="10dp"
-        android:id="@+id/bank"
+        android:id="@+id/spinner_bank"
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/msg_title_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:id="@+id/spinner_product"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/msg_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:textSize="@dimen/textos"
+        android:inputType="number"
+        android:hint="@string/msg_hint_line"
+        android:id="@+id/editxt_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/msg_title_tea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:textSize="@dimen/textos"
+        android:inputType="number"
+        android:id="@+id/editxt_tea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/msg_dis_effective"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        
+        android:textSize="@dimen/textos"
+        android:inputType="number"
+        android:hint="@string/msg_hint_dis_effective"
+        android:id="@+id/editxt_disp_effective"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
